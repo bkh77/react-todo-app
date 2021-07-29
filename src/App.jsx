@@ -10,8 +10,6 @@ export default function App() {
 
   const [text, setText] = useState("");
   const [editor, setEditor] = useState("");
-  console.log(text);
-  console.log(editor);
 
   function addTask(e) {
     e.preventDefault();
@@ -50,9 +48,7 @@ export default function App() {
   return (
     <div className="wrapper">
       <div className={editor ? "card changeEdit" : "card"}>
-        <h4>
-          Todo app <span></span>{" "}
-        </h4>
+        <h4>Todo app {tasks.length > 0 ? <sup>{tasks.length} </sup> : ""}</h4>
         <form onSubmit={addTask}>
           <input
             onChange={(e) => setText(e.target.value)}
@@ -63,7 +59,7 @@ export default function App() {
           <button type="submit">{editor ? "Edit" : "Add"}</button>
         </form>
 
-        {<Tasks editTask={editTask} remove={remove} tasks={tasks} />}
+        <Tasks editTask={editTask} remove={remove} tasks={tasks} />
       </div>
     </div>
   );

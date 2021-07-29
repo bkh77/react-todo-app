@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
-$pink: #38ada9;
+$mainColor: #00cec9;
 $editColor: #2ecc71;
 
 @mixin flexible($fd, $jc, $ai) {
@@ -16,25 +16,36 @@ $editColor: #2ecc71;
 }
 
 .wrapper {
-  // height: 100vh;
   padding: 40px;
   @include flexible(null, center, center);
-
 
   .card {
     width: 500px;
     height: 100%;
-    border: 5px solid $pink;
+    border: 5px solid $mainColor;
     border-radius: 20px;
     padding: 20px;
     @include flexible(column, null, center);
     h4 {
       margin-bottom: 20px;
+      position: relative;
+      sup {
+        @include flexible(null, center, center);
+        position: absolute;
+        top: -10px;
+        right: -30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: $mainColor;
+        color: #fff;
+        font-weight: 600;
+      }
     }
     form {
       input {
         padding: 5px 15px;
-        border: 2px solid $pink;
+        border: 2px solid $mainColor;
         border-radius: 50px;
         margin-right: 10px;
         &:focus {
@@ -46,15 +57,16 @@ $editColor: #2ecc71;
         padding: 5px;
         border: none;
         border-radius: 50px;
-        background-color: $pink;
+        background-color: $mainColor;
         color: #fff;
         font-weight: 500;
-        border: 2px solid $pink;
+        border: 2px solid $mainColor;
         transition: all 0.3s ease;
+        font-weight: 500;
         &:hover {
           background-color: #fff;
-          border: 2px solid $pink;
-          color: $pink;
+          border: 2px solid $mainColor;
+          color: $mainColor;
         }
       }
     }
@@ -69,6 +81,7 @@ $editColor: #2ecc71;
           &:hover {
             border: 2px solid $editColor;
             background-color: #fff;
+            color: $editColor;
           }
         }
       }
@@ -77,7 +90,7 @@ $editColor: #2ecc71;
   .tasks-card {
     margin-top: 30px;
     padding: 20px;
-    border: 2px solid $pink;
+    border: 2px solid $mainColor;
     border-radius: 10px;
     width: 100%;
 
@@ -96,8 +109,13 @@ $editColor: #2ecc71;
           height: 40px;
           border-radius: 50%;
           margin: 5px;
-          border: 1px solid $pink;
+          border: 1px solid $mainColor;
           background-color: #fff;
+          transition: all .3s ease;
+          &:hover {
+            border: 1px solid $mainColor;
+            background-color: $mainColor;
+          }
         }
       }
     }
