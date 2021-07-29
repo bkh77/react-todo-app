@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+$pink: #38ada9;
+$editColor: #2ecc71;
+
+@mixin flexible($fd, $jc, $ai) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.wrapper {
+  // height: 100vh;
+  padding: 40px;
+  @include flexible(null, center, center);
+
+
+  .card {
+    width: 500px;
+    height: 100%;
+    border: 5px solid $pink;
+    border-radius: 20px;
+    padding: 20px;
+    @include flexible(column, null, center);
+    h4 {
+      margin-bottom: 20px;
+    }
+    form {
+      input {
+        padding: 5px 15px;
+        border: 2px solid $pink;
+        border-radius: 50px;
+        margin-right: 10px;
+        &:focus {
+          outline: none;
+        }
+      }
+      button {
+        width: 100px;
+        padding: 5px;
+        border: none;
+        border-radius: 50px;
+        background-color: $pink;
+        color: #fff;
+        font-weight: 500;
+        border: 2px solid $pink;
+        transition: all 0.3s ease;
+        &:hover {
+          background-color: #fff;
+          border: 2px solid $pink;
+          color: $pink;
+        }
+      }
+    }
+    &.changeEdit {
+      form {
+        input {
+          border: 2px solid $editColor;
+        }
+        button {
+          background-color: $editColor;
+          border: 2px solid $editColor;
+          &:hover {
+            border: 2px solid $editColor;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .tasks-card {
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px solid $pink;
+    border-radius: 10px;
+    width: 100%;
+
+    li {
+      @include flexible(row, space-between, center);
+      span {
+        input {
+          transform: scale(1.5);
+        }
+        em {
+          font-size: 16px;
+          margin: 0 15px;
+        }
+        button {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin: 5px;
+          border: 1px solid $pink;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
